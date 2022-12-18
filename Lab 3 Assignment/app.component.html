@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <p style="font-weight: bold;">Component Assignment</p>
+  <app-warning-alert></app-warning-alert>
+<app-success-alert></app-success-alert>
+</div>
+<div class="col-sm-12">
+  <div class="col-sm-06">
+    <p style="font-weight: bold;">Databinding Assignment</p>
+    <div class="col-sm-02">UserName:</div>
+    <div class="col-sm-04">
+      <input type="text" class="form-control" [(ngModel)]="username"> <br>
+    </div>
+    <p>{{ username }}</p>
+    <button class="btn btn-primary" [disabled]="username==''" (click)="resetUser()">Reset User</button>
+  </div><br>
+  <p style="font-weight: bold;">Directives Assignment</p>
+  <div class="col-sm-06">
+    <button class="btn btn-success" (click)="countButtonClick()">Display Details</button>
+    <p *ngIf="isToggle">Sahiram</p><br>
+    <div *ngIf="countnumbers.length>0">
+        <ul style="list-style: none" *ngFor="let num of countnumbers; index as i"
+        [ngStyle]="{backgroundColor: getColor(i)}">
+          <li>{{num}}</li>
+        </ul>
+    </div>
+  </div>
+</div>
+</div>
