@@ -1,0 +1,35 @@
+<div class="container">
+<div class="row">
+  <div class="col-sm-12">
+  <div class="col-sm-6">
+      <input type="text" class="form-control" #input><br>
+      <button class="btn btn-success" (click)="OnSubmit(input)">Submit</button>
+  </div>
+  <div class="col-sm-6">
+        <app-demo [value]="inputText" *ngIf="Destroy">
+          <h4>this is projected content {{ inputText }}</h4>
+        </app-demo>
+        <button class="btn btn-danger" (click)="DestroyComponent()">Destroy</button>
+  </div>
+</div>
+</div><br><br>
+<div class="row">
+  <table class="table table-bordered">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">EmpId</th>
+        <th scope="col">EmpName</th>
+        <th scope="col">EmpDesignation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let val of employee">
+        <td>{{val.emp_id}}</td>
+        <td>{{val.emp_name}}</td>
+        <td>{{val.emp_desg}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
+</div>
