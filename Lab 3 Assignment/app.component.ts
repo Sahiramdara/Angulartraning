@@ -12,6 +12,8 @@ export class AppComponent {
   isToggle:boolean=false;
   countClick:number=0;
   countnumbers:number[]=[];
+  colors:string='';
+  
   resetUser(){
     this.username='';
   }
