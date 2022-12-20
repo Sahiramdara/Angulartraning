@@ -26,4 +26,16 @@
     </div>
   </div>
 </div>
+  <br>
+<p style="font-weight: bold;">ngSwitch Assignment</p>
+<p>Enter Color Name:</p>
+<input type="text" class="form-control" [(ngModel)]="colors">
+<div [ngSwitch]="colors">
+  <div *ngSwitchCase="'blue'" class="blue">Blue</div>
+  <div *ngSwitchCase="'yellow'" class="yellow">Yellow</div>
+  <div *ngSwitchCase="'red'" class="red">Red</div>
+  <div *ngSwitchCase="'silver'" class="silver">Silver</div>
+  <div *ngSwitchCase="'grey'" class="grey">Grey</div>
+  <div *ngSwitchDefault>This is Default</div>
+</div>
 </div>
