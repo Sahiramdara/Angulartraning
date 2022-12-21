@@ -1,0 +1,12 @@
+  a {
+	display: block;
+	color: orange;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+  }
+  
+  /* Change the link color to orange (black) on hover */
+   a:hover {
+	background-color: orange;
+  }
