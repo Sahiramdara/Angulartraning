@@ -1,0 +1,37 @@
+<div class="container">
+ <form [formGroup]="projectDetails" (ngSubmit)="onSubmit()">
+   <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="first-name">Project Name: </label>
+        <input id="first-name" class="form-control" type="text" formControlName="ProjectName">
+        <div style="color: red;" *ngIf="projectDetails.controls['ProjectName'].touched && projectDetails.controls['ProjectName'].invalid">
+            <span *ngIf="projectDetails.controls['ProjectName'].hasError('required')">Project Name is required. </span>
+           
+        </div>
+        <span style="color:red" *ngIf="IsProjectNameValid">Test as a project name does not allow</span>
+    </div>
+        <div class="form-group col-md-6">
+        <label for="last-name">Email: </label>
+        <input id="last-name" class="form-control" type="text" formControlName="Mail">
+        <div style="color: red;" *ngIf="projectDetails.controls['Mail'].touched && projectDetails.controls['Mail'].invalid">
+            <span *ngIf="projectDetails.controls['Mail'].hasError('required')">Mail is required. </span>
+            <span *ngIf="projectDetails.controls['Mail'].hasError('pattern')">inavlid email</span>
+        </div>
+       </div>
+        <div class="form-group col-md-6">
+            <label for="inputState">Project Status</label>
+            <select id="subscriptions" formControlName="ProjectStatus" name="ProjectStatus" class="form-control">
+              <option selected>Choose...</option>
+              <option>Stable</option>
+              <option>Critical</option>
+              <option>Finished</option>
+            </select>
+            <div style="color: red;" *ngIf="projectDetails.controls['ProjectStatus'].touched && projectDetails.controls['ProjectStatus'].invalid">
+                <span *ngIf="projectDetails.controls['ProjectStatus'].hasError('required')">Project Status is required. </span>
+            </div>
+            </div><br>
+
+        <button type="submit" class="btn btn-success" [disabled]="!projectDetails.valid">Submit</button>
+        </div>
+    </form>
+</div>

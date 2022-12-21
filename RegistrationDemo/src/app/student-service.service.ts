@@ -7,6 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class StudentServiceService {
   url:string='';
+  subscripDetails:{Email:string,Password:string,Subscription:string}[]=[];
   constructor(public http:HttpClient) { }
-  
+  addScriptionDetails(email:string,password:string,subscription:string){
+    this.subscripDetails.push({Email:email,Password:password,Subscription:subscription});
+  }
 }
