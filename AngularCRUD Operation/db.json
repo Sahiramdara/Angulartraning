@@ -1,0 +1,32 @@
+{
+  "UserData": [
+    {
+      "id": 1,
+      "UserName": "Ramesh",
+      "UserMobileNumber": "8796000000",
+      "UserMailId": "ramesh@gmail.com",
+      "UserAddress": "ABC road, Indore"
+    },
+    {
+      "id": 3,
+      "UserName": "SVishnoi",
+      "UserAddress": "xcxzcsd ggg",
+      "UserMailId": "xvfdss ggg",
+      "UserMobileNumber": "09878700"
+    },
+    {
+      "id": 4,
+      "UserName": "Rakesh",
+      "UserAddress": "ashdgsahj,6776,hjgashd",
+      "UserMailId": "abvc@mail.com",
+      "UserMobileNumber": "7896567895"
+    },
+    {
+      "id": 5,
+      "UserName": "training",
+      "UserAddress": "dfdgfdg gghgh",
+      "UserMailId": "dgdgfd@dfdf.com",
+      "UserMobileNumber": "3545435400"
+    }
+  ]
+}
