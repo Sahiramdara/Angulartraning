@@ -1,0 +1,53 @@
+
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Determinate Progressbar
+        </mat-panel-title>
+        
+      </mat-expansion-panel-header>
+      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Indeterminate Progressbar
+          </mat-panel-title>
+         
+        </mat-expansion-panel-header>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </mat-expansion-panel>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Query Progressbar
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+        <mat-progress-bar mode="query"></mat-progress-bar>
+      </mat-expansion-panel>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Buffer Progressbar
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+        <mat-progress-bar mode="buffer" color="accent"></mat-progress-bar>
+      </mat-expansion-panel>
+  </mat-accordion><br>
+  <mat-divider></mat-divider>
+  <h2 style="color:white">Hobbies</h2>
+  <mat-chip-listbox aria-label="Hobbies selection">
+    <mat-chip-option *ngFor="let h of Hobbies" selected [color]="h.color">
+      {{h.name}}
+    </mat-chip-option>
+  </mat-chip-listbox>
+        
+  
+    
+
+
+
+
