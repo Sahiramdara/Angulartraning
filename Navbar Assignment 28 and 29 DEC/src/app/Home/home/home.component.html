@@ -40,10 +40,27 @@
   <mat-divider></mat-divider>
   <h2 style="color:white">Hobbies</h2>
   <mat-chip-listbox aria-label="Hobbies selection">
-    <mat-chip-option *ngFor="let h of Hobbies" selected [color]="h.color">
+    <mat-chip-option selected>Playing Cricket</mat-chip-option>
+    <mat-chip-option *ngFor="let h of Hobbies" [color]="h.color">
       {{h.name}}
     </mat-chip-option>
-  </mat-chip-listbox>
+  </mat-chip-listbox><br>
+  <mat-divider></mat-divider>
+  <mat-list>
+    <div mat-subheader>Folders</div>
+    <mat-list-item *ngFor="let folder of folders">
+      <mat-icon matListItemIcon>folder</mat-icon>
+      <div matListItemTitle>{{folder.name}}</div>
+      <div matListItemLine>{{folder.updated | date}}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Notes</div>
+    <mat-list-item *ngFor="let note of notes">
+      <mat-icon matListItemIcon>note</mat-icon>
+      <div matListItemTitle>{{note.name}}</div>
+      <div matListItemLine>{{note.updated | date}}</div>
+    </mat-list-item>
+  </mat-list>
         
   
     
