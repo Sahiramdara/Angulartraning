@@ -1,0 +1,127 @@
+<div class="example-ripple-container mat-elevation-z4"
+     matRipple
+     [matRippleCentered]="centered"
+     [matRippleDisabled]="disabled"
+     [matRippleUnbounded]="unbounded"
+     >
+  Click me
+</div><br>
+<mat-button-toggle-group #group="matButtonToggleGroup" name="fontStyle" aria-label="Font Style" multiple>
+
+
+
+  <mat-button-toggle value="bold">Bold</mat-button-toggle>
+
+  <mat-button-toggle value="italic">Italic</mat-button-toggle>
+
+  <mat-button-toggle value="underline">Underline</mat-button-toggle>
+
+</mat-button-toggle-group>
+
+<div>{{group.value}}</div><br>
+<mat-stepper #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Name</ng-template>
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="First name"  required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Address">
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Address</mat-label>
+        <input matInput  placeholder="location" required>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Submitted</ng-template>
+    <p>Thanks for submitting form.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+
+
+<br>
+<mat-accordion>
+    <mat-expansion-panel hideToggle>
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Determinate Progressbar
+        </mat-panel-title>
+        
+      </mat-expansion-panel-header>
+      <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+    </mat-expansion-panel>
+    <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Indeterminate Progressbar
+          </mat-panel-title>
+         
+        </mat-expansion-panel-header>
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      </mat-expansion-panel>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Query Progressbar
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+        <mat-progress-bar mode="query"></mat-progress-bar>
+      </mat-expansion-panel>
+      <mat-expansion-panel hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Buffer Progressbar
+          </mat-panel-title>
+          
+        </mat-expansion-panel-header>
+        <mat-progress-bar mode="buffer" color="accent"></mat-progress-bar>
+      </mat-expansion-panel>
+  </mat-accordion><br>
+  <mat-divider></mat-divider>
+  <h2 style="color:white">Hobbies</h2>
+  <mat-chip-listbox aria-label="Hobbies selection">
+    <mat-chip-option selected>Playing Cricket</mat-chip-option>
+    <mat-chip-option *ngFor="let h of Hobbies" [color]="h.color">
+      {{h.name}}
+    </mat-chip-option>
+  </mat-chip-listbox><br>
+  <mat-divider></mat-divider>
+  <mat-list>
+    <div mat-subheader>Folders</div>
+    <mat-list-item *ngFor="let folder of folders">
+      <mat-icon matListItemIcon>folder</mat-icon>
+      <div matListItemTitle>{{folder.name}}</div>
+      <div matListItemLine>{{folder.updated | date}}</div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Notes</div>
+    <mat-list-item *ngFor="let note of notes">
+      <mat-icon matListItemIcon>note</mat-icon>
+      <div matListItemTitle>{{note.name}}</div>
+      <div matListItemLine>{{note.updated | date}}</div>
+    </mat-list-item>
+  </mat-list>
+        
+  
+    
+
+
+
+

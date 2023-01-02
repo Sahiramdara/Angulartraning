@@ -1,0 +1,38 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav #sidenav>
+      <mat-nav-list (click)="sidenav.close()">
+        <a mat-list-item>
+          
+          <span>Course List</span>
+        </a>
+      <a mat-list-item>
+     
+          <span>Add New Course</span>
+      </a>
+          
+      </mat-nav-list>
+  </mat-sidenav>
+
+
+
+  <mat-toolbar color="primary">
+      <button mat-icon-button (click)="sidenav.open()" *ngIf="globals.IsLogin">
+          <mat-icon>menu</mat-icon>
+      </button>
+      
+     
+      <a mat-button routerLink="registration" *ngIf="globals.IsLogin">
+          <mat-icon>person_add</mat-icon>
+          Register
+      </a>
+    
+      <a mat-button (click)="openDialog()">
+        <mat-icon>question_answer</mat-icon>
+        About us
+    </a>
+
+    <button mat-button (click)="logOut()" *ngIf="globals.IsLogin">Logout</button>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

@@ -1,0 +1,112 @@
+<br>
+<mat-progress-bar mode="determinate" value="{{progressBarValue}}"></mat-progress-bar>
+<mat-stepper #stepper>
+  
+  <mat-step [stepControl]="firstFormGroup">
+    <form [formGroup]="firstFormGroup">
+      <ng-template matStepLabel>Basic information</ng-template>
+      <mat-form-field class="formfield" hintLabel="Max 32 characters" appearance="outline">
+        <mat-icon matSuffix class="material-icons">person_add</mat-icon>
+        <input matInput placeholder="Full Name" formControlName="fullName" (focusout)="getProgressCount()" required>
+        <mat-error *ngIf="firstFormGroup.controls['fullName'].invalid">{{getErrorInFullname()}}</mat-error>
+      </mat-form-field>
+      
+      <mat-form-field class="formfield" hintLabel="Max 32 characters" appearance="outline">
+        <mat-icon matSuffix class="material-icons">person_add</mat-icon>
+        <input matInput placeholder="Father Name" formControlName="fatherName" (focusout)="getProgressCount1()" required>
+        <mat-error *ngIf="firstFormGroup.controls['fatherName'].invalid">{{getErrorInFName()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="formfield" hintLabel="Max 32 characters" appearance="outline">
+        <mat-icon matSuffix class="material-icons">person_add</mat-icon>
+        <input matInput placeholder="Mother Name" formControlName="motherName" (focusout)="getProgressCount2()" required>
+        <mat-error *ngIf="firstFormGroup.controls['motherName'].invalid">{{getErrorInMName()}}</mat-error>
+      </mat-form-field><br>
+      
+      <mat-form-field class="formfield" appearance="outline">
+        <mat-icon matSuffix class="material-icons">email</mat-icon>
+        <input matInput placeholder="Email"   pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="email" (focusout)="getProgressCount3()" required>
+        <mat-error *ngIf="firstFormGroup.controls['email'].invalid">{{getErrorInEmail()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="formfield" appearance="outline">
+        <mat-icon matSuffix class="material-icons">phone</mat-icon>
+        <input matInput placeholder="phone"  formControlName="mobileno" (focusout)="getProgressCount4()" required>
+        <mat-error *ngIf="firstFormGroup.controls['mobileno'].invalid">{{getErrorInMobileNumber()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="formfield" appearance="outline">
+        <mat-label>DOB</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dob" (focusout)="getProgressCount5()">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="firstFormGroup.controls['dob'].invalid">{{getErrorInDOB()}}</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-radio-group aria-label="Select an Gender" formControlName="gender">
+        <mat-radio-button value="1" [checked]="true">Male</mat-radio-button>
+        <mat-radio-button value="2">Female</mat-radio-button>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="secondFormGroup" label="Bank Details" optional>
+    <form [formGroup]="secondFormGroup">
+      <mat-form-field class="formfield" appearance="outline">
+        <input matInput placeholder="Bank Name" formControlName="bankName">
+        
+      </mat-form-field>
+      <mat-form-field class="formfield" appearance="outline">
+        <input matInput placeholder="Account Number" formControlName="accountNumber">
+        <mat-error *ngIf="secondFormGroup.controls['accountNumber'].invalid">{{getErrorInAccountNumber()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field class="formfield" appearance="outline">
+        <input matInput placeholder="IFSC Code" formControlName="IFSC">
+        <mat-error *ngIf="secondFormGroup.controls['IFSC'].invalid">{{getErrorInIFSC()}}</mat-error>
+      </mat-form-field><br>
+      <mat-radio-group aria-label="Select a Netbanking" formControlName="isInternetBanking">
+       &nbsp;&nbsp; <mat-label>IsInternetBanking:</mat-label><br>
+        <mat-radio-button value="1">Yes</mat-radio-button>
+        <mat-radio-button value="2" [checked]="true">No</mat-radio-button>
+      </mat-radio-group><br>
+      <mat-radio-group aria-label="Select a Mobilebanking" formControlName="isMobileBanking">
+        &nbsp;&nbsp;&nbsp;<mat-label>IsMobileBanking:</mat-label><br>
+        <mat-radio-button value="1">Yes</mat-radio-button>
+        <mat-radio-button value="2" [checked]="true">No</mat-radio-button>
+      </mat-radio-group>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step [stepControl]="thirdFormGroup" label="Communication Address">
+    <form [formGroup]="thirdFormGroup">
+      <br>
+      <mat-form-field appearance="outline">
+        <mat-label>Present Address</mat-label>
+        <textarea matInput formControlName="presentAddress" (focusout)="getProgressCount6()"></textarea>
+        <mat-hint align="end">{{thirdFormGroup.controls['presentAddress'].value?.length}}/60</mat-hint>
+        <mat-error *ngIf="thirdFormGroup.controls['presentAddress'].invalid">{{getErrorInPersentAddress()}}</mat-error>
+      </mat-form-field><br><br><br>
+      <mat-form-field appearance="outline">
+        <mat-label>Permanent Address</mat-label>
+        <textarea matInput formControlName="permanentAddress" (focusout)="getProgressCount7()"></textarea>
+        <mat-hint align="end">{{thirdFormGroup.controls['permanentAddress'].value?.length}}/60</mat-hint>
+        <mat-error *ngIf="thirdFormGroup.controls['permanentAddress'].invalid">{{getErrorInPermanentAddress()}}</mat-error>
+      </mat-form-field>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Submitted</ng-template>
+    <p>Thanks for submitting form.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="submit()">Submit</button>
+    </div>
+  </mat-step>
+</mat-stepper>
